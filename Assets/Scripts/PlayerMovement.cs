@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         var velocityUp = Vector2.Dot(transform.up, _rb.velocity);
         if (velocityUp >= playerMaxSpeed) return;
 
-        _rb.AddForce(transform.up * -_direction.y * playerSpeed, ForceMode2D.Force);
+        _rb.AddForce(transform.up * _direction.y * playerSpeed, ForceMode2D.Force);
     }
 
     private void ApplyRotation()
