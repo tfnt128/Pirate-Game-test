@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PlayerCannon : MonoBehaviour
+public class ShooterEnemy : MonoBehaviour
 {
+    private AIPlayerDetector _playerDetector;
+    private GenericEnemyFollow _enemyFollow;
+    
     private float _shootCounter;
     private IObjectPool<Projectile> _projectilePool;
 
     [SerializeField] private Projectile ballCannon;
-    [SerializeField] private float timeBetweenShots = .5f;
+    [SerializeField] private float timeBetweenShots = 1f;
 
-    [SerializeField] private KeyCode fireKey;
-    
     [SerializeField] private LayerMask layerOfYourProjectile;
 
     private void Awake()
@@ -24,6 +25,13 @@ public class PlayerCannon : MonoBehaviour
         );
     }
 
+    private void Start()
+    {
+        _playerDetector = GetComponentInParent<AIPlayerDetector>();
+        _enemyFollow = GetComponentInParent<GenericEnemyFollow>();
+    }
+    
+    
     private Projectile CreateProjectile()
     {
         Projectile projectile = Instantiate(ballCannon, transform.position, transform.rotation);
@@ -52,14 +60,21 @@ public class PlayerCannon : MonoBehaviour
     void Update()
     {
         _shootCounter -= Time.deltaTime;
-        if (Input.GetKey(fireKey))
+        if (_playerDetector.PlayerDetected)
         {
+            _enemyFollow.canPursue = false;
             if (_shootCounter <= 0)
             {
                 _projectilePool.Get();
 
                 _shootCounter = timeBetweenShots;
+                
+                
             }
+        }
+        else
+        {
+            _enemyFollow.canPursue = true;
         }
     }
 }

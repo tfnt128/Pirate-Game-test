@@ -1,29 +1,61 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum DeteriorationLevel
+{
+    None,
+    Level1,
+    Level2,
+}
 
 public class HealthManager : MonoBehaviour
 {
+    private DeteriorationLevel _currentDeteriorationLevel = DeteriorationLevel.None;
+
     [SerializeField] private CharacterHealthData characterHealthData;
+    [SerializeField] private List<DeteriorationLevelConfig> deteriorationLevelConfigs;
 
     public event Action<int> OnHealthChange;
     public event Action OnCharacterDeath;
+    public event Action OnDeterioration;
     public GameObject deathEffect;
     private int _health;
     private DateTime _lastDamage;
     private HealthBar _healthBar;
-
+    private bool allDeteriorationDone = false;
+    
     public int Health
     {
         get { return _health;}
         set
         {
             if(_health < 0) return;
+            
             _health = value;
-            Debug.Log(_health);
             OnHealthChange?.Invoke(_health);
-            if (_health <= 0)
+            
+            if (_health <= 0) OnCharacterDeath?.Invoke();
+            
+            if(allDeteriorationDone) return;
+            
+            DeteriorationLevel[] allLevels = (DeteriorationLevel[])Enum.GetValues(typeof(DeteriorationLevel));
+            DeteriorationLevel lastLevel = allLevels[allLevels.Length - 1];
+            if (_currentDeteriorationLevel == lastLevel)
             {
-                OnCharacterDeath?.Invoke();
+                allDeteriorationDone = true;
+                return;
+            }
+            
+            foreach (var config in deteriorationLevelConfigs)
+            {
+                if (_health <= characterHealthData.maxHealth * config.healthThreshold &&
+                    _currentDeteriorationLevel != config.level)
+                {
+                    _currentDeteriorationLevel = config.level;
+                    OnDeterioration?.Invoke();
+                    break;
+                }
             }
         }
     }
@@ -32,6 +64,8 @@ public class HealthManager : MonoBehaviour
     {
         _healthBar = GetComponentInChildren<HealthBar>();
         Health = characterHealthData.maxHealth;
+        
+        
     }
     
 

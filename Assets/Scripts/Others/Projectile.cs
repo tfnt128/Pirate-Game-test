@@ -3,6 +3,8 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
+    public LayerMask layerOfYourProjectile;
+    
     private IObjectPool<Projectile> _projectilePool;
 
     private TrailRenderer _tr;
@@ -14,6 +16,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
+        //gameObject.layer = layerOfYourProjectile;
         _tr = GetComponentInChildren<TrailRenderer>();
     }
 
@@ -30,9 +33,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<GenericCharacter>(out var enemy))
+        if (other.TryGetComponent<GenericCharacter>(out var character))
         {
-            enemy.healthManager.TakeDamage(1);
+            character.healthManager.TakeDamage(1);
         }
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
         ReleaseProjectile();

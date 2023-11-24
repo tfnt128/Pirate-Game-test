@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 81603227}
   - component: {fileID: 81603228}
   - component: {fileID: 81603229}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,6 +223,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 323
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &140826565
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +237,7 @@ GameObject:
   - component: {fileID: 140826566}
   - component: {fileID: 140826567}
   - component: {fileID: 140826568}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: SingleShootCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,6 +326,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 0.5
   fireKey: 32
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &185945459
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +340,7 @@ GameObject:
   - component: {fileID: 185945460}
   - component: {fileID: 185945461}
   - component: {fileID: 185945462}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,6 +429,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 323
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +998,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 320
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1959,7 +1968,7 @@ GameObject:
   - component: {fileID: 581458604}
   - component: {fileID: 581458603}
   - component: {fileID: 581458606}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -11723,9 +11732,11 @@ GameObject:
   - component: {fileID: 655967546}
   - component: {fileID: 655967548}
   - component: {fileID: 655967547}
+  - component: {fileID: 655967549}
+  - component: {fileID: 655967550}
   m_Layer: 8
   m_Name: Chaser
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11810,7 +11821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b563714ca8735434f852d67c887ab9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
 --- !u!70 &655967546
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11840,7 +11850,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -11859,6 +11869,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealthData: {fileID: 11400000, guid: bdffa93269dbe3c46b278fcf7515646b, type: 2}
+  deteriorationLevelConfigs:
+  - {fileID: 11400000, guid: d1e6c2835593d73489b2e1ebf646ca22, type: 2}
+  - {fileID: 11400000, guid: 92c80cf64cb98ac4796fb6e706a13fec, type: 2}
   deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
 --- !u!114 &655967548
 MonoBehaviour:
@@ -11872,6 +11885,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dce77c831d3348419e3dbe67f18580a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &655967549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655967542}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858adcc2cbfe10440a9d82f4b0ecd197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 1
+  canPursue: 1
+--- !u!114 &655967550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655967542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c14f585b013cf64dad0d2797129aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deteriorationSprites:
+  - {fileID: 21300000, guid: fae39753807a0894588aab95ca62f5c7, type: 3}
+  - {fileID: 21300000, guid: 82356f30f93646246947afdbd8b46209, type: 3}
 --- !u!1 &691759428
 GameObject:
   m_ObjectHideFlags: 0
@@ -11881,7 +11923,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 691759429}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Triple Left Cannons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11919,9 +11961,12 @@ GameObject:
   - component: {fileID: 865423169}
   - component: {fileID: 865423168}
   - component: {fileID: 865423170}
+  - component: {fileID: 865423171}
+  - component: {fileID: 865423173}
+  - component: {fileID: 865423174}
   m_Layer: 8
   m_Name: Shooter
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11991,6 +12036,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1586404555}
   - {fileID: 1043615186}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12007,6 +12053,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealthData: {fileID: 11400000, guid: d50e5e358335bf343afbd4e177c82712, type: 2}
+  deteriorationLevelConfigs:
+  - {fileID: 11400000, guid: d122ba83b0ff60049b144c32347f1e6d, type: 2}
+  - {fileID: 11400000, guid: 9578289ccd968e24380eceabdc7fef27, type: 2}
   deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
 --- !u!114 &865423169
 MonoBehaviour:
@@ -12055,6 +12104,58 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.66, y: 1.13}
   m_Direction: 0
+--- !u!114 &865423171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865423165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f9909f37320f545843aef357091b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerDetected>k__BackingField: 0
+  detectorOrigin: {fileID: 865423167}
+  detectorSize: 7
+  detectorOriginOffset: {x: 0, y: 0}
+  detectionDelay: 0.3
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  gizmoIdleColor: {r: 0, g: 1, b: 0, a: 1}
+  gizmoDetectedColor: {r: 1, g: 0, b: 0, a: 1}
+  showGizmos: 1
+--- !u!114 &865423173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865423165}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858adcc2cbfe10440a9d82f4b0ecd197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 1
+  canPursue: 1
+--- !u!114 &865423174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865423165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c14f585b013cf64dad0d2797129aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deteriorationSprites:
+  - {fileID: 21300000, guid: 1766ce3ae5b0778419d5f661fcd5c34b, type: 3}
+  - {fileID: 21300000, guid: 1b71d76d80f893e45bef48a8ad96b684, type: 3}
 --- !u!1 &1029804439
 GameObject:
   m_ObjectHideFlags: 0
@@ -12144,7 +12245,7 @@ GameObject:
   - component: {fileID: 1043615188}
   - component: {fileID: 1043615187}
   m_Layer: 8
-  m_Name: HealthBar Canvas (1)
+  m_Name: 'HealthBar Canvas '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12452,7 +12553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179480286}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Triple Right Cannons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12556,7 +12657,7 @@ GameObject:
   - component: {fileID: 1340419294}
   - component: {fileID: 1340419295}
   - component: {fileID: 1340419296}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12645,6 +12746,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 324
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1364433095
 GameObject:
   m_ObjectHideFlags: 0
@@ -12656,7 +12760,7 @@ GameObject:
   - component: {fileID: 1364433096}
   - component: {fileID: 1364433097}
   - component: {fileID: 1364433098}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12745,6 +12849,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 324
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1527138372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12756,7 +12863,7 @@ GameObject:
   - component: {fileID: 1527138373}
   - component: {fileID: 1527138374}
   - component: {fileID: 1527138375}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12845,6 +12952,111 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 324
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!1 &1586404554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586404555}
+  - component: {fileID: 1586404557}
+  - component: {fileID: 1586404558}
+  m_Layer: 6
+  m_Name: 'SingleShootCannon '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1586404555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586404554}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.002, y: 0.594, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 865423167}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!212 &1586404557
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586404554}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 3c5674d0ad7c0a84789692f5563cebb1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.2, y: 0.12}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &1586404558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586404554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1d22c56839f484ba707e2db6622493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: f4b6a6f80f0ed9d46a0df4ed5f711d35, type: 3}
+  timeBetweenShots: 1
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &1844452104
 GameObject:
   m_ObjectHideFlags: 0
@@ -12856,7 +13068,7 @@ GameObject:
   - component: {fileID: 1844452105}
   - component: {fileID: 1844452106}
   - component: {fileID: 1844452107}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: cannon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12945,6 +13157,9 @@ MonoBehaviour:
   ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
   timeBetweenShots: 1
   fireKey: 323
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1865672707
 GameObject:
   m_ObjectHideFlags: 0

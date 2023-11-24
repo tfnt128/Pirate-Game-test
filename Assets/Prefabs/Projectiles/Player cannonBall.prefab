@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 840471856393718528}
   - component: {fileID: 6789334933501577253}
   - component: {fileID: 5245419691348638968}
-  m_Layer: 6
-  m_Name: cannonBall
+  m_Layer: 9
+  m_Name: Player cannonBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043e7d61d277e07418cc85cd22395110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layerOfYourProjectile:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 5
   explosionEffect: {fileID: 3085596199682513375, guid: 8ee3724701cba044ea79fceae62c89d5, type: 3}
 --- !u!1 &6183392170742423238
@@ -174,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282361051066615296}
   - component: {fileID: 2049754908715123945}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: SimpleTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
