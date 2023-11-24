@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ChaserLvl2
   m_EditorClassIdentifier: 
   level: 2
-  healthThreshold: 0.3
+  healthThreshold: 0.6

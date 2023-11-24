@@ -9,6 +9,8 @@ public enum DeteriorationLevel
     Level2,
 }
 
+[RequireComponent(typeof(GenericCharacter))]
+[RequireComponent(typeof(ShipDeterioration))]
 public class HealthManager : MonoBehaviour
 {
     private DeteriorationLevel _currentDeteriorationLevel = DeteriorationLevel.None;

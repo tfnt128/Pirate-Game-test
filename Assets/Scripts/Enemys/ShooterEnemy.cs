@@ -12,8 +12,6 @@ public class ShooterEnemy : MonoBehaviour
     [SerializeField] private Projectile ballCannon;
     [SerializeField] private float timeBetweenShots = 1f;
 
-    [SerializeField] private LayerMask layerOfYourProjectile;
-
     private void Awake()
     {
         _projectilePool = new ObjectPool<Projectile>(

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3868d6814915cbe4e995a34c715c2d30, type: 3}
-  m_Name: ChaserLvl1
+  m_Name: PlayerLvl2
   m_EditorClassIdentifier: 
-  level: 1
-  healthThreshold: 0.9
+  level: 2
+  healthThreshold: 0.3

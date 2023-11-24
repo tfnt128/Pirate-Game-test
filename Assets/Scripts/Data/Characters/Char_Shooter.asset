@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1e7dffef856834aa2f132b40fa9fab, type: 3}
   m_Name: Char_Shooter
   m_EditorClassIdentifier: 
-  maxHealth: 6
+  maxHealth: 4
   invincibleFramesTimer: 0.5
   canTurnOnIFrames: 0

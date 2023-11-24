@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3868d6814915cbe4e995a34c715c2d30, type: 3}
-  m_Name: ChaserLvl1
+  m_Script: {fileID: 11500000, guid: eb1e7dffef856834aa2f132b40fa9fab, type: 3}
+  m_Name: Char_Player
   m_EditorClassIdentifier: 
-  level: 1
-  healthThreshold: 0.9
+  maxHealth: 999999
+  invincibleFramesTimer: 0.5
+  canTurnOnIFrames: 0

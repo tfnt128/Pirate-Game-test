@@ -8,12 +8,17 @@ public class ChaserEnemy : MonoBehaviour
     {
         _genericCharacter = GetComponent<GenericCharacter>();
     }
+    
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.collider.CompareTag("Player"))
         {
+            GenericCharacter playerChar = other.gameObject.GetComponent<GenericCharacter>();
+            playerChar.healthManager.TakeDamage(3);
+
             _genericCharacter.healthManager.InstantiateKill();
+            
         }
     }
 }

@@ -3,8 +3,6 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
-    public LayerMask layerOfYourProjectile;
-    
     private IObjectPool<Projectile> _projectilePool;
 
     private TrailRenderer _tr;
@@ -16,7 +14,6 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        //gameObject.layer = layerOfYourProjectile;
         _tr = GetComponentInChildren<TrailRenderer>();
     }
 
