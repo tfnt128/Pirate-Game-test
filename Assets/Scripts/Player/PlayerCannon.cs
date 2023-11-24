@@ -7,8 +7,9 @@ public class PlayerCannon : MonoBehaviour
     private IObjectPool<Projectile> _projectilePool;
 
     [SerializeField] private Projectile ballCannon;
-    [SerializeField] private Transform cannonPosition;
     [SerializeField] private float timeBetweenShots = .5f;
+
+    [SerializeField] private KeyCode fireKey;
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class PlayerCannon : MonoBehaviour
 
     private Projectile CreateProjectile()
     {
-        Projectile projectile = Instantiate(ballCannon, cannonPosition.position, cannonPosition.rotation);
+        Projectile projectile = Instantiate(ballCannon, transform.position, transform.rotation);
         projectile.SetPool(_projectilePool);
         return projectile;
     }
@@ -31,8 +32,8 @@ public class PlayerCannon : MonoBehaviour
     private void OnGet(Projectile projectile)
     {
         projectile.gameObject.SetActive(true);
-        projectile.transform.position = cannonPosition.position;
-        projectile.transform.rotation = cannonPosition.rotation;
+        projectile.transform.position = transform.position;
+        projectile.transform.rotation = transform.rotation;
     }
 
     private void OnRealease(Projectile projectile)
@@ -48,7 +49,7 @@ public class PlayerCannon : MonoBehaviour
     void Update()
     {
         _shootCounter -= Time.deltaTime;
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(fireKey))
         {
             if (_shootCounter <= 0)
             {

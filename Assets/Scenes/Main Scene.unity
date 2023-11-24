@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 81603227}
   - component: {fileID: 81603228}
+  - component: {fileID: 81603229}
   m_Layer: 0
   m_Name: cannon (1)
   m_TagString: Untagged
@@ -207,6 +208,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &81603229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81603226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 323
 --- !u!1 &140826565
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140826566}
   - component: {fileID: 140826567}
+  - component: {fileID: 140826568}
   m_Layer: 0
   m_Name: SingleShootCannon
   m_TagString: Untagged
@@ -291,6 +308,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &140826568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140826565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 0.5
+  fireKey: 32
 --- !u!1 &185945459
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185945460}
   - component: {fileID: 185945461}
+  - component: {fileID: 185945462}
   m_Layer: 0
   m_Name: cannon (3)
   m_TagString: Untagged
@@ -375,6 +408,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &185945462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185945459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 323
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1794,11 +1842,10 @@ GameObject:
   - component: {fileID: 581458601}
   - component: {fileID: 581458604}
   - component: {fileID: 581458603}
-  - component: {fileID: 581458605}
   - component: {fileID: 581458606}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1917,20 +1964,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &581458605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581458600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
-  cannonPos: {fileID: 140826566}
 --- !u!70 &581458606
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -11570,7 +11603,9 @@ GameObject:
   m_Component:
   - component: {fileID: 655967544}
   - component: {fileID: 655967543}
-  m_Layer: 0
+  - component: {fileID: 655967545}
+  - component: {fileID: 655967546}
+  m_Layer: 8
   m_Name: Chaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11621,7 +11656,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 5edd69484ae68b541bb3bb1dcaa88557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.66, y: 1.13}
   m_AdaptiveModeThreshold: 0.5
@@ -11644,6 +11679,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 35.612}
+--- !u!114 &655967545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655967542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563714ca8735434f852d67c887ab9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 1
+  explosionEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
+--- !u!70 &655967546
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655967542}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.6600001, y: 1.1300001}
+  m_Direction: 0
 --- !u!1 &691759428
 GameObject:
   m_ObjectHideFlags: 0
@@ -11739,7 +11823,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 820e02d6f6a30654985870f48dd30063, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.66, y: 1.13}
   m_AdaptiveModeThreshold: 0.5
@@ -11852,6 +11936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340419294}
   - component: {fileID: 1340419295}
+  - component: {fileID: 1340419296}
   m_Layer: 0
   m_Name: cannon (2)
   m_TagString: Untagged
@@ -11926,6 +12011,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1340419296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340419293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 324
 --- !u!1 &1364433095
 GameObject:
   m_ObjectHideFlags: 0
@@ -11936,6 +12036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1364433096}
   - component: {fileID: 1364433097}
+  - component: {fileID: 1364433098}
   m_Layer: 0
   m_Name: cannon (3)
   m_TagString: Untagged
@@ -12010,6 +12111,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1364433098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364433095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 324
 --- !u!1 &1527138372
 GameObject:
   m_ObjectHideFlags: 0
@@ -12020,6 +12136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527138373}
   - component: {fileID: 1527138374}
+  - component: {fileID: 1527138375}
   m_Layer: 0
   m_Name: cannon (1)
   m_TagString: Untagged
@@ -12094,6 +12211,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1527138375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527138372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 324
 --- !u!1 &1844452104
 GameObject:
   m_ObjectHideFlags: 0
@@ -12104,6 +12236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1844452105}
   - component: {fileID: 1844452106}
+  - component: {fileID: 1844452107}
   m_Layer: 0
   m_Name: cannon (2)
   m_TagString: Untagged
@@ -12178,6 +12311,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1844452107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844452104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  timeBetweenShots: 1
+  fireKey: 323
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
