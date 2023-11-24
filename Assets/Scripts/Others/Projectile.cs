@@ -30,6 +30,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.TryGetComponent<GenericCharacter>(out var enemy))
+        {
+            enemy.healthManager.TakeDamage(1);
+        }
         Instantiate(explosionEffect, transform.position, Quaternion.identity);
         ReleaseProjectile();
     }

@@ -1,17 +1,16 @@
-using System;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class ChaserEnemy : MonoBehaviour
 {
     public float enemySpeed = 1f;
 
-    [SerializeField] private GameObject explosionEffect;
-
     private Transform _player;
+    private GenericCharacter _genericCharacter;
+    
 
     void Start()
     {
+        _genericCharacter = GetComponent<GenericCharacter>();
         _player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -31,8 +30,7 @@ public class ChaserEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Instantiate(explosionEffect, transform.position, quaternion.identity);
-            Destroy(gameObject);
+            _genericCharacter.healthManager.InstantiateKill();
         }
     }
 
