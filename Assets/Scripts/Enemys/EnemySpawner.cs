@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate = 2f;
+    [SerializeField] private float spawnRate;
     [SerializeField] private Transform[] spawnPositions;
     [SerializeField] private GameObject[] enemyPrefab;
     [SerializeField] private bool canSpawn = true;
 
     private void Start()
     {
+        spawnRate = OptionsManager.Instance.enemySpawnRate;
         StartCoroutine(Spawner());
     }
 

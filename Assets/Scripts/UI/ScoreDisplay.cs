@@ -1,11 +1,9 @@
-using Unity.Mathematics;
 using UnityEngine;
 
-public class GenericCharacter : MonoBehaviour
+public class ScoreDisplay : MonoBehaviour
 {
     internal HealthManager healthManager;
-
-    private void Awake()
+    void Start()
     {
         healthManager = GetComponent<HealthManager>();
         healthManager.OnCharacterDeath += HandleDeath;
@@ -13,7 +11,7 @@ public class GenericCharacter : MonoBehaviour
 
     private void HandleDeath()
     {
-        Instantiate(healthManager.deathEffect, transform.position, quaternion.identity);
-        Destroy(gameObject);
+        ScoreManager.Instance.AddScore(1);
     }
+
 }
