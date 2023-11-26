@@ -1,64 +1,38 @@
+using System;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class PlayerCannon : MonoBehaviour
 {
+    [SerializeField] private KeyCode[] fireKeys;
+    [SerializeField] private float timeBetweenShots = 0.5f;
     private float _shootCounter;
-    private IObjectPool<Projectile> _projectilePool;
+    private ProjectilePoolManager _cannonManager;
 
-    [SerializeField] private Projectile ballCannon;
-    [SerializeField] private float timeBetweenShots = .5f;
-
-    [SerializeField] private KeyCode fireKey;
-    
-    [SerializeField] private LayerMask layerOfYourProjectile;
-
-    private void Awake()
+    private void Start()
     {
-        _projectilePool = new ObjectPool<Projectile>(
-            CreateProjectile,
-            OnGet,
-            OnRealease,
-            OnDestroyProjectile,
-            maxSize: 3
-        );
-    }
-
-    private Projectile CreateProjectile()
-    {
-        Projectile projectile = Instantiate(ballCannon, transform.position, transform.rotation);
-       // projectile.layerOfYourProjectile = layerOfYourProjectile;
-        projectile.SetPool(_projectilePool);
-        return projectile;
-    }
-
-    private void OnGet(Projectile projectile)
-    {
-        projectile.gameObject.SetActive(true);
-        projectile.transform.position = transform.position;
-        projectile.transform.rotation = transform.rotation;
-    }
-
-    private void OnRealease(Projectile projectile)
-    {
-        projectile.gameObject.SetActive(false);
-    }
-
-    private void OnDestroyProjectile(Projectile projectile)
-    {
-        Destroy(projectile.gameObject);
+        _cannonManager = FindObjectOfType<ProjectilePoolManager>();
     }
 
     void Update()
     {
         _shootCounter -= Time.deltaTime;
-        if (Input.GetKey(fireKey))
-        {
-            if (_shootCounter <= 0)
-            {
-                _projectilePool.Get();
 
-                _shootCounter = timeBetweenShots;
+        foreach (KeyCode key in fireKeys)
+        {
+            if (Input.GetKey(key))
+            {
+                if (_shootCounter <= 0)
+                {
+                    Projectile projectile = _cannonManager.GetProjectile(CannonBallType.PlayerProjectile);
+
+                    if (projectile != null)
+                    {
+                        projectile.transform.position = transform.position;
+                        projectile.transform.rotation = transform.rotation;
+
+                        _shootCounter = timeBetweenShots;
+                    }
+                }
             }
         }
     }

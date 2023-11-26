@@ -12,11 +12,15 @@ public class Timer : MonoBehaviour
     [SerializeField] private float currentTime;
     [SerializeField] private bool countDown;
     
+    [Header("Options Data")]
+    public OptionsData optionsData;
+    
     private readonly float _timerLimit = 0;
 
     private void Start()
     {
-        currentTime = OptionsManager.Instance.gameSessionTime;
+        Time.timeScale = 1f;
+        currentTime = optionsData.gameSessionTime;
     }
 
     void Update()
@@ -28,6 +32,7 @@ public class Timer : MonoBehaviour
             finalScore.text = "FINAL SCORE = " + ScoreManager.Instance._currentPoints;
             finalScreen.SetActive(true);
             timerText.color = Color.red;
+            Time.timeScale = 0f;
         }
         
         if (currentTime <= _timerLimit)

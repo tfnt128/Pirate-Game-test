@@ -1851,8 +1851,7 @@ MonoBehaviour:
   enemySpawnRateSlider: {fileID: 94837587}
   gameSessionTimeText: {fileID: 1711762423}
   enemySpawnRateText: {fileID: 1114001813}
-  gameSessionTime: 60
-  enemySpawnRate: 2
+  optionsData: {fileID: 11400000, guid: 19277c00078f9b64cb7b78af89d2fe42, type: 2}
 --- !u!4 &1524403460
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,7 +1860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524403458}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1235.5247, y: 618.1779, z: 2.0487223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2277,8 +2276,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2132174342}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837243420
@@ -2828,7 +2826,7 @@ RectTransform:
   - {fileID: 1837243421}
   - {fileID: 476049646}
   - {fileID: 2616579}
-  m_Father: {fileID: 1823831836}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2915,5 +2913,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1823831836}
+  - {fileID: 2132174342}
   - {fileID: 1272199952}
   - {fileID: 1524403460}

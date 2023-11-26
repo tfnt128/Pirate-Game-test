@@ -97,12 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 2000000045010000
   timeBetweenShots: 0.5
-  fireKey: 32
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &667345168274256907
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,12 +197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 4401000078000000
   timeBetweenShots: 1
-  fireKey: 324
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &1129566008043205140
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,12 +632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 430100007a000000
   timeBetweenShots: 1
-  fireKey: 323
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &6088040861219670818
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,12 +732,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 4401000078000000
   timeBetweenShots: 1
-  fireKey: 324
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &6423652676541969372
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,12 +832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 430100007a000000
   timeBetweenShots: 1
-  fireKey: 323
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &7178174543583936725
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,12 +932,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 430100007a000000
   timeBetweenShots: 1
-  fireKey: 323
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}
 --- !u!1 &7385819388493011106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,9 +1249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballCannon: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  fireKeys: 4401000078000000
   timeBetweenShots: 1
-  fireKey: 324
-  layerOfYourProjectile:
-    serializedVersion: 2
-    m_Bits: 512
+  _cannonManager: {fileID: 0}

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 232441828181660949}
   - component: {fileID: 7677498470464423228}
   - component: {fileID: 5346727651660205398}
+  - component: {fileID: 2963879473310927981}
   m_Layer: 8
   m_Name: Chaser
   m_TagString: Enemy
@@ -312,6 +313,33 @@ MonoBehaviour:
   deteriorationSprites:
   - {fileID: 21300000, guid: fae39753807a0894588aab95ca62f5c7, type: 3}
   - {fileID: 21300000, guid: 82356f30f93646246947afdbd8b46209, type: 3}
+--- !u!50 &2963879473310927981
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5978917196501412318
 GameObject:
   m_ObjectHideFlags: 0

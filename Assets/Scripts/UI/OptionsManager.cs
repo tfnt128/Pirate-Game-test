@@ -10,58 +10,39 @@ public class OptionsManager : MonoBehaviour
     public TextMeshProUGUI gameSessionTimeText;
     public TextMeshProUGUI enemySpawnRateText;
 
-    [Header("Options Settings")]
-    public float gameSessionTime = 60f;
-    public float enemySpawnRate = 2f;
-    
+    [Header("Options Data")]
+    public OptionsData optionsData;
+
     private readonly float _minGameSessionTime = 60f;
-
-    private bool didChangeSomenthing;
-    
-    private static OptionsManager _instance;
-
-    public static OptionsManager Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<OptionsManager>();
-
-                if (_instance == null)
-                {
-                    GameObject singleton = new GameObject("OptionsManager");
-                    _instance = singleton.AddComponent<OptionsManager>();
-                }
-            }
-
-            return _instance;
-        }
-    }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {
-        gameSessionTimeSlider.value = (gameSessionTime - _minGameSessionTime) / (180f - _minGameSessionTime); 
-        enemySpawnRateSlider.value = (enemySpawnRate - 2f) / 8f; 
-        UpdateTexts();
+        optionsData.gameSessionTime = 60f;
+        optionsData.enemySpawnRate = 2f;
+        
+        gameSessionTimeSlider.value = (optionsData.gameSessionTime - _minGameSessionTime) / (180f - _minGameSessionTime); 
+        enemySpawnRateSlider.value = (optionsData.enemySpawnRate - 2f) / 8f;
+
+        LoadOptions();
+        UpdateUI();
     }
-    
 
     public void SaveOptions()
     {
-        gameSessionTime = gameSessionTimeSlider.value * (180f - _minGameSessionTime) + _minGameSessionTime; 
-        enemySpawnRate = enemySpawnRateSlider.value * 8f + 2f; 
+        optionsData.gameSessionTime = gameSessionTimeSlider.value * (180f - _minGameSessionTime) + _minGameSessionTime;
+        optionsData.enemySpawnRate = enemySpawnRateSlider.value * 8f + 2f;
+    }
+    
+    
+    private void LoadOptions()
+    {
+        gameSessionTimeSlider.value = (optionsData.gameSessionTime - _minGameSessionTime) / (180f - _minGameSessionTime);
+        enemySpawnRateSlider.value = (optionsData.enemySpawnRate - 2f) / 8f;
+    }
+
+    private void UpdateUI()
+    {
+        UpdateTexts();
     }
 
     private void UpdateTexts()

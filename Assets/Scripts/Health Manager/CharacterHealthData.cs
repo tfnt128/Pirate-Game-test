@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Char_", menuName = "ScriptableObject/Character")]
+[CreateAssetMenu(fileName = "Char_", menuName = "ScriptableObject/Ship Stats")]
 public class CharacterHealthData : ScriptableObject
 {
     [Tooltip("Max Character Health")]
