@@ -24189,12 +24189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileTypes:
-  - type: 0
-    prefab: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
-    maxSize: 5
-  - type: 1
-    prefab: {fileID: 5245419691348638968, guid: f4b6a6f80f0ed9d46a0df4ed5f711d35, type: 3}
-    maxSize: 6
+  - {fileID: 11400000, guid: 47da98c1207cabc41aa36b1fd581d6da, type: 2}
+  - {fileID: 11400000, guid: 9e301fbae9660764682544df591d07b3, type: 2}
 --- !u!1 &1930866092
 GameObject:
   m_ObjectHideFlags: 0
@@ -24451,7 +24447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1764877924720101653, guid: f27ce57ab629d1e4295aea41f280343a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1980506002782716153, guid: f27ce57ab629d1e4295aea41f280343a, type: 3}
       propertyPath: m_LocalPosition.x

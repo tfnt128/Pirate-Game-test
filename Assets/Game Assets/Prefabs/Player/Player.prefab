@@ -1070,6 +1070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 47da98c1207cabc41aa36b1fd581d6da, type: 2}
   playerCannonConfigurations:
   - cannonSelected: {fileID: 5162420285481044114}
     fireKeys: 2000000045010000

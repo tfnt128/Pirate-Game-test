@@ -24,7 +24,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1980506002782716153
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a1d22c56839f484ba707e2db6622493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 9e301fbae9660764682544df591d07b3, type: 2}
   cannonConfigurations:
   - cannonSelected: {fileID: 3733714840539391143}
     timeBetweenShots: 1

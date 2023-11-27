@@ -13,6 +13,10 @@ public class CannonConfiguration
 [RequireComponent(typeof(AITargetDetector))]
 public class ShooterEnemy : MonoBehaviour
 {
+    [Header("Projectile Type")] 
+    [SerializeField] private ProjectileTypeSO type;
+    
+    [Header("Configurations")] 
     [SerializeField] private List<CannonConfiguration> cannonConfigurations;
 
     private AITargetDetector _playerDetector;
@@ -57,7 +61,7 @@ public class ShooterEnemy : MonoBehaviour
             {
                 if (_cannonManager != null)
                 {
-                    Projectile projectile = _cannonManager.GetProjectile(CannonBallType.EnemyProjectile);
+                    Projectile projectile = _cannonManager.GetProjectile(type);
                 
                     if (projectile != null)
                     {

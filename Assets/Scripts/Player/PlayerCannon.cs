@@ -12,6 +12,10 @@ public class PlayerCannonConfiguration
 
 public class PlayerCannon : MonoBehaviour
 {
+    [Header("Projectile Type")] 
+    [SerializeField] private ProjectileTypeSO type;
+    
+    [Header("Configurations")] 
     [SerializeField] private List<PlayerCannonConfiguration> playerCannonConfigurations;
 
     private Dictionary<Transform, float> _shootCounters = new Dictionary<Transform, float>();
@@ -52,7 +56,7 @@ public class PlayerCannon : MonoBehaviour
 
                 if (Input.GetKey(key))
                 {
-                    Projectile projectile = _cannonManager.GetProjectile(CannonBallType.PlayerProjectile);
+                    Projectile projectile = _cannonManager.GetProjectile(type);
 
                     if (projectile != null)
                     {
