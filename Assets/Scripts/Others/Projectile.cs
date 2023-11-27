@@ -3,18 +3,16 @@ using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
-    private IObjectPool<Projectile> _projectilePool;
-
-    private TrailRenderer _tr;
-
-    [SerializeField] private float speed = 5;
-
+    [Header("Components")]
+    [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject explosionEffect;
-
+    
+    private IObjectPool<Projectile> _projectilePool;
+    private TrailRenderer _trailRenderer;
 
     private void Start()
     {
-        _tr = GetComponentInChildren<TrailRenderer>();
+        _trailRenderer = GetComponentInChildren<TrailRenderer>();
     }
 
     public void SetPool(IObjectPool<Projectile> pool)
@@ -22,20 +20,34 @@ public class Projectile : MonoBehaviour
         _projectilePool = pool;
     }
 
-
     private void Update()
     {
-        transform.position += (Vector3)(transform.right * speed * Time.deltaTime);
+        MoveProjectile();
+    }
+
+    private void MoveProjectile()
+    {
+        transform.position += transform.right * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        HandleCollision(other);
+    }
+
+    private void HandleCollision(Collider2D other)
+    {
         if (other.TryGetComponent<GenericCharacter>(out var character))
         {
-            character.healthManager.TakeDamage(1);
+            character.HealthManager.TakeDamage(1);
         }
-        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        InstantiateExplosionEffect();
         ReleaseProjectile();
+    }
+
+    private void InstantiateExplosionEffect()
+    {
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
     }
 
     private void OnBecameInvisible()
@@ -48,7 +60,7 @@ public class Projectile : MonoBehaviour
         if (gameObject.activeSelf)
         {
             _projectilePool.Release(this);
-            _tr.Clear();
+            _trailRenderer.Clear();
         }
     }
 }

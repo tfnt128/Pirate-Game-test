@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5162420285481044114}
   - component: {fileID: 8109500681370255628}
-  - component: {fileID: 4166973161014678899}
   m_Layer: 6
   m_Name: SingleShootCannon
   m_TagString: Untagged
@@ -85,21 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4166973161014678899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77136190846507250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 2000000045010000
-  timeBetweenShots: 0.5
-  _cannonManager: {fileID: 0}
 --- !u!1 &667345168274256907
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +94,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8804464004813291206}
   - component: {fileID: 6507817437211488535}
-  - component: {fileID: 4023956496745317103}
   m_Layer: 6
   m_Name: cannon (1)
   m_TagString: Untagged
@@ -185,21 +168,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4023956496745317103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667345168274256907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 4401000078000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}
 --- !u!1 &1129566008043205140
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,7 +513,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5580945042424106661}
   - component: {fileID: 5281902720318490117}
-  - component: {fileID: 4619188812927325888}
   m_Layer: 6
   m_Name: cannon (2)
   m_TagString: Untagged
@@ -620,21 +587,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4619188812927325888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493617408219243437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 430100007a000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}
 --- !u!1 &6088040861219670818
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,7 +597,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3968439796978734288}
   - component: {fileID: 519735876743455769}
-  - component: {fileID: 1456436542630120787}
   m_Layer: 6
   m_Name: cannon (3)
   m_TagString: Untagged
@@ -720,21 +671,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1456436542630120787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088040861219670818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 4401000078000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}
 --- !u!1 &6423652676541969372
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +681,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6662224091076460315}
   - component: {fileID: 4093382436257747701}
-  - component: {fileID: 2392538165872489043}
   m_Layer: 6
   m_Name: cannon (3)
   m_TagString: Untagged
@@ -820,21 +755,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2392538165872489043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6423652676541969372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 430100007a000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}
 --- !u!1 &7178174543583936725
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,7 +765,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1260326185480787208}
   - component: {fileID: 8527756860968050584}
-  - component: {fileID: 2448011561340229737}
   m_Layer: 6
   m_Name: cannon (1)
   m_TagString: Untagged
@@ -920,21 +839,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2448011561340229737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7178174543583936725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 430100007a000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}
 --- !u!1 &7385819388493011106
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,12 +849,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3404020615985487966}
   - component: {fileID: 2059095395151736802}
-  - component: {fileID: 8161220966638394460}
-  - component: {fileID: 3343263604081824985}
   - component: {fileID: 3869505434781439271}
+  - component: {fileID: 8161220966638394460}
   - component: {fileID: 231262844847275062}
-  - component: {fileID: 2897165491136137958}
   - component: {fileID: 4415897983393128386}
+  - component: {fileID: 2897165491136137958}
+  - component: {fileID: 3343263604081824985}
+  - component: {fileID: 7580719096061999476}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1029,50 +934,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8161220966638394460
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385819388493011106}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &3343263604081824985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7385819388493011106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1371d51007c6e974c9b0df5fd620ae3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 1
-  playerMaxSpeed: 5
-  playerRotationSpeed: 2
-  playerDriftRange: 0.8
-  playerDragRange: 3
 --- !u!70 &3869505434781439271
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1108,6 +969,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.66, y: 1.13}
   m_Direction: 0
+--- !u!50 &8161220966638394460
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385819388493011106}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &231262844847275062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1120,11 +1008,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa07f9d9617e504fa78684de38f63ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterHealthData: {fileID: 11400000, guid: bce37f567f6d2e640afa0aca5c89b08d, type: 2}
+  healthData: {fileID: 11400000, guid: bce37f567f6d2e640afa0aca5c89b08d, type: 2}
   deteriorationLevelConfigs:
   - {fileID: 11400000, guid: 1f2b5942dff4d3942abcafaa6f0e16a1, type: 2}
   - {fileID: 11400000, guid: 896f21291e9df574e9ba36ccfaff0924, type: 2}
   deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
+--- !u!114 &4415897983393128386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385819388493011106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce77c831d3348419e3dbe67f18580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 0
 --- !u!114 &2897165491136137958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1041,7 @@ MonoBehaviour:
   deteriorationSprites:
   - {fileID: 21300000, guid: 21d31d90804e3f445aea3a8c7031ae33, type: 3}
   - {fileID: 21300000, guid: 2ef88d3be1d2260488666a2fa3fb1bb9, type: 3}
---- !u!114 &4415897983393128386
+--- !u!114 &3343263604081824985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1149,9 +1050,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 7385819388493011106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dce77c831d3348419e3dbe67f18580a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1371d51007c6e974c9b0df5fd620ae3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpeed: 1.5
+  playerMaxSpeed: 5
+  playerRotationSpeed: 2
+  playerDriftRange: 0.8
+  playerDragRange: 3
+--- !u!114 &7580719096061999476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385819388493011106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCannonConfigurations:
+  - cannonSelected: {fileID: 5162420285481044114}
+    fireKeys: 2000000045010000
+    timeBetweenShots: 0.5
+  - cannonSelected: {fileID: 8804464004813291206}
+    fireKeys: 4401000078000000
+    timeBetweenShots: 1
+  - cannonSelected: {fileID: 7386679662360052225}
+    fireKeys: 4401000078000000
+    timeBetweenShots: 1
+  - cannonSelected: {fileID: 3968439796978734288}
+    fireKeys: 4401000078000000
+    timeBetweenShots: 1
+  - cannonSelected: {fileID: 1260326185480787208}
+    fireKeys: 430100007a000000
+    timeBetweenShots: 1
+  - cannonSelected: {fileID: 5580945042424106661}
+    fireKeys: 430100007a000000
+    timeBetweenShots: 1
+  - cannonSelected: {fileID: 6662224091076460315}
+    fireKeys: 430100007a000000
+    timeBetweenShots: 1
 --- !u!1 &8458857036709740506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1102,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7386679662360052225}
   - component: {fileID: 3077683809864274173}
-  - component: {fileID: 1804867195379410636}
   m_Layer: 6
   m_Name: cannon (2)
   m_TagString: Untagged
@@ -1237,18 +1176,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1804867195379410636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8458857036709740506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac289a5284e65241812db73c540327f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireKeys: 4401000078000000
-  timeBetweenShots: 1
-  _cannonManager: {fileID: 0}

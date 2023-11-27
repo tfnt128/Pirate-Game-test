@@ -126,13 +126,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5089981463843549832}
   - component: {fileID: 1114138703542394925}
-  - component: {fileID: 2931187754221596628}
   - component: {fileID: 4768010939267062031}
+  - component: {fileID: 2963879473310927981}
   - component: {fileID: 3820465088461990266}
   - component: {fileID: 232441828181660949}
-  - component: {fileID: 7677498470464423228}
   - component: {fileID: 5346727651660205398}
-  - component: {fileID: 2963879473310927981}
+  - component: {fileID: 7677498470464423228}
+  - component: {fileID: 2931187754221596628}
   m_Layer: 8
   m_Name: Chaser
   m_TagString: Enemy
@@ -208,18 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2931187754221596628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772432840393019468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b563714ca8735434f852d67c887ab9f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &4768010939267062031
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -255,64 +243,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.6600001, y: 1.1300001}
   m_Direction: 0
---- !u!114 &3820465088461990266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772432840393019468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dce77c831d3348419e3dbe67f18580a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &232441828181660949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772432840393019468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa07f9d9617e504fa78684de38f63ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterHealthData: {fileID: 11400000, guid: bdffa93269dbe3c46b278fcf7515646b, type: 2}
-  deteriorationLevelConfigs:
-  - {fileID: 11400000, guid: d1e6c2835593d73489b2e1ebf646ca22, type: 2}
-  - {fileID: 11400000, guid: 92c80cf64cb98ac4796fb6e706a13fec, type: 2}
-  deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
---- !u!114 &7677498470464423228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772432840393019468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 858adcc2cbfe10440a9d82f4b0ecd197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemySpeed: 1
-  canPursue: 1
---- !u!114 &5346727651660205398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3772432840393019468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c14f585b013cf64dad0d2797129aced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deteriorationSprites:
-  - {fileID: 21300000, guid: fae39753807a0894588aab95ca62f5c7, type: 3}
-  - {fileID: 21300000, guid: 82356f30f93646246947afdbd8b46209, type: 3}
 --- !u!50 &2963879473310927981
 Rigidbody2D:
   serializedVersion: 4
@@ -340,6 +270,76 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3820465088461990266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dce77c831d3348419e3dbe67f18580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 1
+--- !u!114 &232441828181660949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa07f9d9617e504fa78684de38f63ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthData: {fileID: 11400000, guid: bdffa93269dbe3c46b278fcf7515646b, type: 2}
+  deteriorationLevelConfigs:
+  - {fileID: 11400000, guid: d1e6c2835593d73489b2e1ebf646ca22, type: 2}
+  - {fileID: 11400000, guid: 92c80cf64cb98ac4796fb6e706a13fec, type: 2}
+  deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
+--- !u!114 &5346727651660205398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c14f585b013cf64dad0d2797129aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deteriorationSprites:
+  - {fileID: 21300000, guid: fae39753807a0894588aab95ca62f5c7, type: 3}
+  - {fileID: 21300000, guid: 82356f30f93646246947afdbd8b46209, type: 3}
+--- !u!114 &7677498470464423228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 858adcc2cbfe10440a9d82f4b0ecd197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &2931187754221596628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b563714ca8735434f852d67c887ab9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5978917196501412318
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,21 +1,31 @@
 using Unity.Mathematics;
 using UnityEngine;
 
+public enum CharacterType
+{
+    Player,
+    Enemy
+}
+[RequireComponent(typeof(HealthManager))]
 public class GenericCharacter : MonoBehaviour
 {
-    internal HealthManager healthManager;
+    [SerializeField] private CharacterType characterType;
+    internal HealthManager HealthManager;
 
     private void Awake()
     {
-        healthManager = GetComponent<HealthManager>();
-        healthManager.OnCharacterDeath += HandleDeath;
+        HealthManager = GetComponent<HealthManager>();
+        HealthManager.OnCharacterDeath += (sender, e) => HandleDeath(e.DeathType);
     }
 
-    private void HandleDeath()
+    private void HandleDeath(TypeOfDeath typeOfDeath)
     {
-        if (gameObject.layer != LayerMask.NameToLayer("Player")) ScoreManager.Instance.AddScore(1);
-
-        Instantiate(healthManager.deathEffect, transform.position, quaternion.identity);
+        if (characterType == CharacterType.Enemy && typeOfDeath == TypeOfDeath.Normal)
+        {
+            ScoreManager.Instance.AddScore(1);
+        }
+        
+        Instantiate(HealthManager.DeathEffect, transform.position, quaternion.identity);
         Destroy(gameObject);
     }
 }

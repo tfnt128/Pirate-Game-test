@@ -2,41 +2,49 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Speed Components")]
+    [SerializeField] private float playerSpeed;
+    [SerializeField] private float playerMaxSpeed;
+    
+    [Header("Rotation Components")]
+    [SerializeField] private float playerRotationSpeed;
+    [SerializeField] [Range(0, 1)] private float playerDriftRange = 1;
+    [SerializeField] [Range(0, 3)] private float playerDragRange = 3;
+    
     private Rigidbody2D _rb;
     private Vector2 _direction;
     private float _rotationAngle = 0;
 
-    [SerializeField] private float playerSpeed;
-    [SerializeField] private float playerMaxSpeed;
-    [SerializeField] private float playerRotationSpeed;
-    [SerializeField] [Range(0, 1)] private float playerDriftRange = 1;
-    [SerializeField] [Range(0, 3)] private float playerDragRange = 3;
-
-    void Start()
+    private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
+    {
+        ReadInput();
+    }
+
+    private void FixedUpdate()
+    {
+        ApplyMovement();
+    }
+
+    private void ReadInput()
     {
         _direction.y = Input.GetAxisRaw("Vertical");
         _direction.x = Input.GetAxisRaw("Horizontal");
     }
 
-    private void FixedUpdate()
+    private void ApplyMovement()
     {
-        ApplySpeed();
-    }
-
-    private void ApplySpeed()
-    {
-        LimitVelocity();
+        LimitSpeed();
         ApplyRotation();
         ApplyDrift();
-        DragCheck();
+        ApplyDrag();
     }
 
-    private void LimitVelocity()
+    private void LimitSpeed()
     {
         if (_direction.y < 0) return;
 
@@ -59,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         _rb.velocity = velocityUp + velocityRight * playerDriftRange;
     }
 
-    private void DragCheck()
+    private void ApplyDrag()
     {
         _rb.drag = (_direction.y <= 0) ? Mathf.Lerp(_rb.drag, playerDragRange, Time.deltaTime) : 0;
     }

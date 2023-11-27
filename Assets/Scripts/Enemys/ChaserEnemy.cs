@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(GenericCharacter))]
 public class ChaserEnemy : MonoBehaviour
 {
     private GenericCharacter _genericCharacter;
@@ -15,9 +16,9 @@ public class ChaserEnemy : MonoBehaviour
         if (other.collider.CompareTag("Player"))
         {
             GenericCharacter playerChar = other.gameObject.GetComponent<GenericCharacter>();
-            playerChar.healthManager.TakeDamage(3);
+            playerChar.HealthManager.TakeDamage(3);
 
-            _genericCharacter.healthManager.InstantiateKill();
+            _genericCharacter.HealthManager.InstantiateKill(TypeOfDeath.SelfDestroy);
             
         }
     }

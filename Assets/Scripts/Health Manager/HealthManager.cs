@@ -6,93 +6,144 @@ public enum DeteriorationLevel
 {
     None,
     Level1,
-    Level2,
+    Level2
+}
+
+public enum TypeOfDeath
+{
+    SelfDestroy,
+    Normal
+}
+
+public class DeathEventArgs : EventArgs
+{
+    public TypeOfDeath DeathType { get; }
+    public GameObject Character { get; }
+
+    public DeathEventArgs(TypeOfDeath deathType, GameObject character)
+    {
+        DeathType = deathType;
+        Character = character;
+    }
+    
+    public static DeathEventArgs Create(TypeOfDeath deathType, GameObject character)
+    {
+        return new DeathEventArgs(deathType, character);
+    }
 }
 
 [RequireComponent(typeof(GenericCharacter))]
 [RequireComponent(typeof(ShipDeterioration))]
 public class HealthManager : MonoBehaviour
 {
+    public event Action<int> OnHealthChange;
+    public event EventHandler<DeathEventArgs> OnCharacterDeath;
+    public event Action OnDeterioration;
+    public GameObject DeathEffect
+    {
+        get { return deathEffect; }
+        private set { deathEffect = value; }
+    }
+
+    [Header("Character Data")]
+    [SerializeField] private CharacterHealthData healthData;
+    [SerializeField] private List<DeteriorationLevelData> deteriorationLevelConfigs;
+
+    [Header("Character Death Effect")]
+    [SerializeField] private GameObject deathEffect;
+
     private DeteriorationLevel _currentDeteriorationLevel = DeteriorationLevel.None;
 
-    [SerializeField] private CharacterHealthData characterHealthData;
-    [SerializeField] private List<DeteriorationLevelConfig> deteriorationLevelConfigs;
-
-    public event Action<int> OnHealthChange;
-    public event Action OnCharacterDeath;
-    public event Action OnDeterioration;
-    public GameObject deathEffect;
     private int _health;
-    private DateTime _lastDamage;
+    private DateTime _lastDamageTime;
     private HealthBar _healthBar;
-    private bool allDeteriorationDone = false;
-    
+    private bool _allDeteriorationDone;
+
     public int Health
     {
-        get { return _health;}
+        get { return _health; }
         set
         {
-            if(_health < 0) return;
-            
+            if (_health < 0) return;
+
             _health = value;
             OnHealthChange?.Invoke(_health);
-            
-            if (_health <= 0) OnCharacterDeath?.Invoke();
-            
-            if(allDeteriorationDone) return;
-            
-            DeteriorationLevel[] allLevels = (DeteriorationLevel[])Enum.GetValues(typeof(DeteriorationLevel));
-            DeteriorationLevel lastLevel = allLevels[allLevels.Length - 1];
-            if (_currentDeteriorationLevel == lastLevel)
-            {
-                allDeteriorationDone = true;
-                return;
-            }
-            
-            foreach (var config in deteriorationLevelConfigs)
-            {
-                if (_health <= characterHealthData.maxHealth * config.healthThreshold &&
-                    _currentDeteriorationLevel != config.level)
-                {
-                    _currentDeteriorationLevel = config.level;
-                    OnDeterioration?.Invoke();
-                    break;
-                }
-            }
+
+            if (_health <= 0) DeathTypeHandler(TypeOfDeath.Normal);
+
+            if (_allDeteriorationDone) return;
+
+            CheckDeterioration();
         }
     }
 
     private void Start()
     {
         _healthBar = GetComponentInChildren<HealthBar>();
-        Health = characterHealthData.maxHealth;
-        
-        
+        Health = healthData.maxHealth;
     }
-    
+
+    private void CheckDeterioration()
+    {
+        if (_allDeteriorationDone) return;
+
+        foreach (var config in deteriorationLevelConfigs)
+        {
+            if (_health <= healthData.maxHealth * config.healthThreshold &&
+                _currentDeteriorationLevel != config.level)
+            {
+                _currentDeteriorationLevel = config.level;
+                OnDeterioration?.Invoke();
+                break;
+            }
+        }
+
+        UpdateAllDeteriorationFlag();
+    }
+
+    private void UpdateAllDeteriorationFlag()
+    {
+        DeteriorationLevel[] allLevels = (DeteriorationLevel[])Enum.GetValues(typeof(DeteriorationLevel));
+        DeteriorationLevel lastLevel = allLevels[allLevels.Length - 1];
+
+        if (_currentDeteriorationLevel == lastLevel)
+        {
+            _allDeteriorationDone = true;
+        }
+    }
+
+    private void DeathTypeHandler(TypeOfDeath typeOfDeath)
+    {
+        OnCharacterDeath?.Invoke(this, DeathEventArgs.Create(typeOfDeath, gameObject));
+    }
 
     public bool TakeDamage(int value)
     {
         if (!CanTakeDamage()) return false;
+
         Health -= value;
-        _healthBar.UpdateHealthBar(characterHealthData.maxHealth, Health);
-        _lastDamage = DateTime.UtcNow;
+        _healthBar?.UpdateHealthBar(healthData.maxHealth, _health);
+        _lastDamageTime = DateTime.UtcNow;
         return true;
     }
-    public bool InstantiateKill()
+
+    public bool InstantiateKill(TypeOfDeath typeOfDeath)
     {
         if (!CanTakeDamage()) return false;
-        Health -= Health;
+
+        DeathTypeHandler(typeOfDeath);
+
         return true;
     }
 
     private bool CanTakeDamage()
     {
-        if (!characterHealthData.canTurnOnIFrames) return true;
-        if (characterHealthData.invincibleFramesTimer > 0)
+        if (!healthData.canTurnOnIFrames) return true;
+
+        if (healthData.invincibleFramesTimer > 0)
         {
-            TimeSpan timeSpan = DateTime.UtcNow - _lastDamage;
-            return timeSpan.TotalSeconds > characterHealthData.invincibleFramesTimer;
+            TimeSpan timeSpan = DateTime.UtcNow - _lastDamageTime;
+            return timeSpan.TotalSeconds > healthData.invincibleFramesTimer;
         }
 
         return true;

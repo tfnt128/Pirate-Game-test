@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b40030aac5b1d4f44adf92b87786f443, type: 3}
-  m_Name: PlayerCannonManager
+  m_Script: {fileID: 11500000, guid: bb5d922e87b59fe459f1414f63d4f035, type: 3}
+  m_Name: UserOptionsData
   m_EditorClassIdentifier: 
-  cannonBall: {fileID: 5245419691348638968, guid: 2e9bb2dc05f943249873f9870420425e, type: 3}
+  gameSessionTime: 60
+  enemySpawnRate: 2

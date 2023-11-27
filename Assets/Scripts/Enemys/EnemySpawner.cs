@@ -3,35 +3,48 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Behavior components")]
-    [SerializeField] private float spawnRate;
+    [Header("Components")]
     [SerializeField] private Transform[] spawnPositions;
-    [SerializeField] private GameObject[] enemyPrefab;
+    [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private bool canSpawn = true;
-    
+
     [Header("Options Data")]
-    public OptionsData optionsData;
+    [SerializeField] private OptionsData optionsData;
+
+    private float _spawnRate;
+    private WaitForSeconds _wait;
 
     private void Start()
     {
-        spawnRate = optionsData.enemySpawnRate;
+        InitializeSpawnRate();
         StartCoroutine(Spawner());
     }
 
-    private WaitForSeconds _wait;
+    private void InitializeSpawnRate()
+    {
+        _spawnRate = optionsData.enemySpawnRate;
+    }
+
     private IEnumerator Spawner()
     {
-        _wait = new WaitForSeconds(spawnRate);
-         while (canSpawn)
-         {
-             yield return _wait;
-             
-             int randomEnemy = Random.Range(0, enemyPrefab.Length);
-             int randomPos = Random.Range(0, spawnPositions.Length);
-             GameObject enemyToSpawn = enemyPrefab[randomEnemy];
-             Transform spawnPosition = spawnPositions[randomPos];
+        _wait = new WaitForSeconds(_spawnRate);
 
-             Instantiate(enemyToSpawn, spawnPosition.position, Quaternion.identity);
-         }
+        while (canSpawn)
+        {
+            yield return _wait;
+
+            SpawnRandomEnemy();
+        }
+    }
+
+    private void SpawnRandomEnemy()
+    {
+        int randomEnemyIndex = Random.Range(0, enemyPrefabs.Length);
+        int randomSpawnIndex = Random.Range(0, spawnPositions.Length);
+
+        GameObject enemyToSpawn = enemyPrefabs[randomEnemyIndex];
+        Transform spawnPosition = spawnPositions[randomSpawnIndex];
+
+        Instantiate(enemyToSpawn, spawnPosition.position, Quaternion.identity);
     }
 }

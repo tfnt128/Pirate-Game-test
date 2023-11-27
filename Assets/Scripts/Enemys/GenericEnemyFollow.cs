@@ -2,36 +2,54 @@ using UnityEngine;
 
 public class GenericEnemyFollow : MonoBehaviour
 {
-    public float enemySpeed = 1f;
-    public bool canPursue = true;
+    public bool CanPursue { get; set; } = true;
+    
+    [Header("Components")]
+    [SerializeField] private float speed = 1f;
+    
+    private Transform _playerTransform;
 
-    private Transform _player;
-
-
-    void Start()
+    private void Start()
     {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
+        FindPlayer();
     }
 
-    void Update()
+    private void Update()
     {
-        if (_player != null)
+        if (_playerTransform != null)
         {
-            Vector3 targetDirection = _player.position - transform.position;
-            targetDirection.Normalize();
-
+            Vector3 targetDirection = GetTargetDirection();
             RotateEnemy(targetDirection);
             MoveEnemy(targetDirection);
         }
     }
 
-    void MoveEnemy(Vector3 direction)
+    private void FindPlayer()
     {
-        if(canPursue)
-            transform.Translate(direction * enemySpeed * Time.deltaTime, Space.World);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            _playerTransform = player.transform;
+        }
     }
 
-    void RotateEnemy(Vector3 lookDirection)
+    private Vector3 GetTargetDirection()
+    {
+        if (_playerTransform != null)
+        {
+            Vector3 direction = _playerTransform.position - transform.position;
+            direction.Normalize();
+            return direction;
+        }
+        return Vector3.zero;
+    }
+
+    private void MoveEnemy(Vector3 direction)
+    {
+        if (CanPursue) transform.Translate(direction * speed * Time.deltaTime, Space.World);
+    }
+
+    private void RotateEnemy(Vector3 lookDirection)
     {
         transform.LookAt(transform.position + new Vector3(0, 0, 1), lookDirection);
     }
