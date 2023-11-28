@@ -20,9 +20,13 @@ public class GenericCharacter : MonoBehaviour
 
     private void HandleDeath(TypeOfDeath typeOfDeath)
     {
-        if (characterType == CharacterType.Enemy && typeOfDeath == TypeOfDeath.Normal)
+        if (characterType == CharacterType.Enemy)
         {
-            ScoreManager.Instance.AddScore(1);
+            if(typeOfDeath == TypeOfDeath.Normal) ScoreManager.Instance.AddScore(1);
+        }
+        else if(characterType == CharacterType.Player)
+        {
+            FindObjectOfType<Timer>().HandleDeathEnd();
         }
         
         Instantiate(HealthManager.DeathEffect, transform.position, quaternion.identity);

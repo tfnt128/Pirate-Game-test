@@ -60,6 +60,13 @@ public class Timer : MonoBehaviour
         Time.timeScale = 0f;
     }
 
+    public void HandleDeathEnd()
+    {
+        finalScore.text = "FINAL SCORE = " + ScoreManager.Instance.ScoreData.points.ToString();
+        finalScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
     private void SetTimerLimit()
     {
         currentTime = _timerLimit;
