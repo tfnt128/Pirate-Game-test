@@ -13,7 +13,7 @@ public class PlayerCannonConfiguration
 public class PlayerCannon : MonoBehaviour
 {
     [Header("Projectile Type")] 
-    [SerializeField] private ProjectileTypeSO type;
+    [SerializeField] private ProjectileTypeData type;
     
     [Header("Configurations")] 
     [SerializeField] private List<PlayerCannonConfiguration> playerCannonConfigurations;

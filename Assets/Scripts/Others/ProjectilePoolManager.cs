@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 public class ProjectilePoolManager : MonoBehaviour
 {
-    [SerializeField] private List<ProjectileTypeSO> projectileTypes;
-    private Dictionary<ProjectileTypeSO, IObjectPool<Projectile>> _projectilePools;
+    [SerializeField] private List<ProjectileTypeData> projectileTypes;
+    private Dictionary<ProjectileTypeData, IObjectPool<Projectile>> _projectilePools;
 
     private void Awake()
     {
-        _projectilePools = new Dictionary<ProjectileTypeSO, IObjectPool<Projectile>>();
+        _projectilePools = new Dictionary<ProjectileTypeData, IObjectPool<Projectile>>();
         InitializePools();
     }
 
@@ -22,7 +22,7 @@ public class ProjectilePoolManager : MonoBehaviour
         }
     }
 
-    private void InitializePool(ProjectileTypeSO projectileType)
+    private void InitializePool(ProjectileTypeData projectileType)
     {
         IObjectPool<Projectile> projectilePool = new ObjectPool<Projectile>(
             () => CreateProjectile(projectileType),
@@ -34,7 +34,7 @@ public class ProjectilePoolManager : MonoBehaviour
         _projectilePools.Add(projectileType, projectilePool);
     }
 
-    private Projectile CreateProjectile(ProjectileTypeSO projectileType)
+    private Projectile CreateProjectile(ProjectileTypeData projectileType)
     {
         Projectile projectile = Instantiate(projectileType.prefab, Vector3.zero, Quaternion.identity);
         projectile.SetPool(_projectilePools[projectileType]);
@@ -58,7 +58,7 @@ public class ProjectilePoolManager : MonoBehaviour
         Destroy(projectile.gameObject);
     }
 
-    public IObjectPool<Projectile> GetProjectilePool(ProjectileTypeSO type)
+    public IObjectPool<Projectile> GetProjectilePool(ProjectileTypeData type)
     {
         if (_projectilePools.TryGetValue(type, out var projectilePool))
         {
@@ -71,7 +71,7 @@ public class ProjectilePoolManager : MonoBehaviour
         }
     }
 
-    public Projectile GetProjectile(ProjectileTypeSO type)
+    public Projectile GetProjectile(ProjectileTypeData type)
     {
         var projectilePool = GetProjectilePool(type);
         return projectilePool?.Get();

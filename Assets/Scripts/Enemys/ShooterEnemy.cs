@@ -14,7 +14,7 @@ public class CannonConfiguration
 public class ShooterEnemy : MonoBehaviour
 {
     [Header("Projectile Type")] 
-    [SerializeField] private ProjectileTypeSO type;
+    [SerializeField] private ProjectileTypeData type;
     
     [Header("Configurations")] 
     [SerializeField] private List<CannonConfiguration> cannonConfigurations;
