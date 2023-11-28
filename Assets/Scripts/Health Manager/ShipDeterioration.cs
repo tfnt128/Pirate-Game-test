@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(HealthManager))]
 public class ShipDeterioration : MonoBehaviour
 {
     [SerializeField] private List<Sprite> deteriorationSprites;

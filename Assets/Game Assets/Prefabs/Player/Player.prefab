@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 6195514750952639720}
   - component: {fileID: 1757874387118503174}
   m_Layer: 8
-  m_Name: Foreground
+  m_Name: BarSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +399,6 @@ GameObject:
   - component: {fileID: 6830465655056573118}
   - component: {fileID: 7449764051396602141}
   - component: {fileID: 3187217648116871291}
-  - component: {fileID: 669138825496175298}
   m_Layer: 8
   m_Name: 'HealthBar Canvas  '
   m_TagString: Untagged
@@ -490,19 +489,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &669138825496175298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5106250627741929059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarSprite: {fileID: 1757874387118503174}
 --- !u!1 &5493617408219243437
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +839,7 @@ GameObject:
   - component: {fileID: 8161220966638394460}
   - component: {fileID: 231262844847275062}
   - component: {fileID: 4415897983393128386}
+  - component: {fileID: 900315095326819484}
   - component: {fileID: 2897165491136137958}
   - component: {fileID: 3343263604081824985}
   - component: {fileID: 7580719096061999476}
@@ -1026,6 +1013,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterType: 0
+--- !u!114 &900315095326819484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7385819388493011106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarSprite: {fileID: 1757874387118503174}
+  healthBarCanvas: {fileID: 5106250627741929059}
+  duration: 0.3
 --- !u!114 &2897165491136137958
 MonoBehaviour:
   m_ObjectHideFlags: 0

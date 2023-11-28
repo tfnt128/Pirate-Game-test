@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1484282907236001484}
   - component: {fileID: 3524485586555937961}
   - component: {fileID: 3722036584863412846}
+  - component: {fileID: 5438160889466339415}
   - component: {fileID: 4552223299407207982}
   - component: {fileID: 2972260513349351846}
   - component: {fileID: 7432132888451808594}
@@ -173,6 +174,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d122ba83b0ff60049b144c32347f1e6d, type: 2}
   - {fileID: 11400000, guid: 9578289ccd968e24380eceabdc7fef27, type: 2}
   deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
+--- !u!114 &5438160889466339415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764877924720101653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarSprite: {fileID: 6827752613874055527}
+  healthBarCanvas: {fileID: 3845972889766105039}
+  duration: 0.3
 --- !u!114 &4552223299407207982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +364,6 @@ GameObject:
   - component: {fileID: 4851202585351431262}
   - component: {fileID: 9084015342379361271}
   - component: {fileID: 8378597887845629537}
-  - component: {fileID: 6716884997186473179}
   m_Layer: 8
   m_Name: 'HealthBar Canvas '
   m_TagString: Untagged
@@ -439,19 +454,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6716884997186473179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3845972889766105039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarSprite: {fileID: 6827752613874055527}
 --- !u!1 &7698284658538075931
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +466,7 @@ GameObject:
   - component: {fileID: 7592644225249859342}
   - component: {fileID: 6827752613874055527}
   m_Layer: 8
-  m_Name: Foreground
+  m_Name: BarSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

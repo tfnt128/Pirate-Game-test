@@ -32,6 +32,7 @@ public class DeathEventArgs : EventArgs
     }
 }
 
+[RequireComponent(typeof(HealthBar))]
 [RequireComponent(typeof(GenericCharacter))]
 [RequireComponent(typeof(ShipDeterioration))]
 public class HealthManager : MonoBehaviour

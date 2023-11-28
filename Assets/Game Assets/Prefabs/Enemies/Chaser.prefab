@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2309671353939381926}
   - component: {fileID: 8975522859161013096}
   - component: {fileID: 2395708586846107707}
-  - component: {fileID: 5758727176554504901}
   m_Layer: 8
   m_Name: HealthBar Canvas
   m_TagString: Untagged
@@ -103,19 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5758727176554504901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2803685940914932358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBarSprite: {fileID: 765864069620736884}
 --- !u!1 &3772432840393019468
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +116,7 @@ GameObject:
   - component: {fileID: 2963879473310927981}
   - component: {fileID: 3820465088461990266}
   - component: {fileID: 232441828181660949}
+  - component: {fileID: 6100133488773789068}
   - component: {fileID: 5346727651660205398}
   - component: {fileID: 7677498470464423228}
   - component: {fileID: 2931187754221596628}
@@ -300,6 +287,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1e6c2835593d73489b2e1ebf646ca22, type: 2}
   - {fileID: 11400000, guid: 92c80cf64cb98ac4796fb6e706a13fec, type: 2}
   deathEffect: {fileID: 3899936952700659399, guid: 7b25369a7ada7574e936dc86e6b4697b, type: 3}
+--- !u!114 &6100133488773789068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772432840393019468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6555279793d8d654b94d28f0fac6076b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarSprite: {fileID: 765864069620736884}
+  healthBarCanvas: {fileID: 2803685940914932358}
+  duration: 0.3
 --- !u!114 &5346727651660205398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +354,7 @@ GameObject:
   - component: {fileID: 7420457916235606064}
   - component: {fileID: 765864069620736884}
   m_Layer: 8
-  m_Name: Foreground
+  m_Name: BarSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
